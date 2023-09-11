@@ -1,8 +1,12 @@
-"MovieMinds - Your Ultimate Movie Companion
+"MovieMinds - Your Ultimate Movie Companion"
 
 MovieMinds is a cutting-edge movie streaming app designed to elevate your cinematic experience. With its powerful search and recommendation engine, it's your trusted companion for discovering, watching, and enjoying the best movies and TV shows.
 
 Key Features:
+
+🔐 Secure Login & Signup: Protect your account with secure login and signup functionality.
+
+⛔ Unauthorized Access Handling: If unauthorized, users will be redirected to the browse page.
 
 🔎 Smart Search: Find your favorite movies and shows with lightning-fast search capabilities.
 
