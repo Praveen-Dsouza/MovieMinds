@@ -7,7 +7,7 @@ const Navbar = () => {
         className='w-44'
         src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJqVZ0gdHREsGU1GwHdUBnM1c3zI1qElOn9oicKQeuOMKL40vTKKj4wu0W5ZPKphZDh-M&usqp=CAU'
         alt="logo"/> */}
-        <p className='text-[#E50914] font-bold text-4xl'>MovieMinds</p>
+        <p className='text-[#E50914] font-extrabold text-3xl'>MovieMinds</p>
     </div>
   )
 }
