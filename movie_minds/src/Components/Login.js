@@ -9,7 +9,7 @@ import {
 import { auth } from "../Utils/Firebase";
 import { useDispatch } from "react-redux";
 import { addUser } from "../Utils/userSlice";
-import { AUTH_BG } from "../Utils/Constants";
+import { AUTH_BG, USER_AVATAR } from "../Utils/Constants";
 
 const Login = () => {
   const [isSignInForm, setisSignInForm] = useState(true);
@@ -45,8 +45,7 @@ const Login = () => {
           console.log("user", user);
           updateProfile(user, {
             displayName: inputUsernameValue,
-            photoURL:
-              "https://images.immediate.co.uk/production/volatile/sites/3/2023/03/goku-dragon-ball-guru-824x490-11b2006.jpg",
+            photoURL: USER_AVATAR
           })
             .then(() => {
               // we cant extract from user since it will not have updated(previous) values so we take from auth

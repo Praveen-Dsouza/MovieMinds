@@ -12,7 +12,7 @@ const Navbar = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
         const { uid, email, displayName, photoURL } = user;
         // Store user data in user slice
@@ -24,6 +24,9 @@ const Navbar = () => {
         navigate("/");
       }
     });
+
+    // UnSubscribe when component unmounts
+    return () => unsubscribe();
   }, []);
 
   const handleSignOut = () => {
@@ -36,19 +39,15 @@ const Navbar = () => {
 
   return (
     <div className="absolute px-8 py-2 bg-gradient-to-b from-black z-10 w-full flex justify-between">
-      {/* <img 
-        className='w-44'
-        src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJqVZ0gdHREsGU1GwHdUBnM1c3zI1qElOn9oicKQeuOMKL40vTKKj4wu0W5ZPKphZDh-M&usqp=CAU'
-        alt="logo"/> */}
       <p className="text-[#B20710] font-bold text-3xl">MovieMinds</p>
       {user && (
         <div className="flex p-2">
           <img
-            className="w-12 h-12 rounded-full"
+            className="w-9 h-9"
             src={user?.photoURL}
             alt="user_icon"
           />
-          <button onClick={handleSignOut} className="font-bold text-white">
+          <button onClick={handleSignOut} className="font-bold text-white text-2xl">
             (Sign Out)
           </button>
         </div>
