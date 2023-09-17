@@ -7,9 +7,9 @@ import {
   updateProfile
 } from "firebase/auth";
 import { auth } from "../Utils/Firebase";
-import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addUser } from "../Utils/userSlice";
+import { AUTH_BG } from "../Utils/Constants";
 
 const Login = () => {
   const [isSignInForm, setisSignInForm] = useState(true);
@@ -17,7 +17,6 @@ const Login = () => {
   const password = useRef(null);
   const name = useRef(null);
   const [errMsg, setErrMsg] = useState();
-  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const toggleSignInForm = () => {
@@ -51,14 +50,11 @@ const Login = () => {
             // we cant extract from user since it will not have updated(previous) values so we take from auth
             const { uid, email, displayName, photoURL } = auth.currentUser;
             dispatch(addUser({ uid, email, displayName, photoURL }))
-            navigate('/browse')
           }).catch((err) => {
             setErrMsg('Error creating user')
           });
         })
         .catch((err) => {
-          // const errCode = err.code;
-          // const errMessage = err.message;
           setErrMsg("Email already in use!");
         });
     } else {
@@ -67,12 +63,9 @@ const Login = () => {
         .then((resp) => {
           // Signed in
           const user = resp.user;
-          console.log("user", user);
-          navigate('/browse')
+          console.log("sign in user", user);
         })
         .catch((err) => {
-          // const errCode = err.code;
-          // const errMessage = err.message;
           setErrMsg(`Sorry, we can't find an account with this email!`);
         });
     }
@@ -81,10 +74,10 @@ const Login = () => {
   return (
     <div>
       <Navbar />
-      <div className="absolute ">
+      <div className="absolute w-screen">
         <img
-          className="bg-gradient from-[#333]"
-          src="https://assets.nflxext.com/ffe/siteui/vlv3/42df4e1f-bef6-499e-87ff-c990584de314/5e7c383c-1f88-4983-b4da-06e14c0984ba/IN-en-20230904-popsignuptwoweeks-perspective_alpha_website_large.jpg"
+          className="bg-gradient from-[#333] w-full"
+          src={AUTH_BG}
           alt="login"
         />
       </div>
