@@ -4,7 +4,7 @@ import { checkValidData } from "../Utils/Validate";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
-  updateProfile
+  updateProfile,
 } from "firebase/auth";
 import { auth } from "../Utils/Firebase";
 import { useDispatch } from "react-redux";
@@ -44,15 +44,18 @@ const Login = () => {
           const user = resp.user;
           console.log("user", user);
           updateProfile(user, {
-            displayName: inputUsernameValue, 
-            photoURL: "https://images.immediate.co.uk/production/volatile/sites/3/2023/03/goku-dragon-ball-guru-824x490-11b2006.jpg"
-          }).then(() => {
-            // we cant extract from user since it will not have updated(previous) values so we take from auth
-            const { uid, email, displayName, photoURL } = auth.currentUser;
-            dispatch(addUser({ uid, email, displayName, photoURL }))
-          }).catch((err) => {
-            setErrMsg('Error creating user')
-          });
+            displayName: inputUsernameValue,
+            photoURL:
+              "https://images.immediate.co.uk/production/volatile/sites/3/2023/03/goku-dragon-ball-guru-824x490-11b2006.jpg",
+          })
+            .then(() => {
+              // we cant extract from user since it will not have updated(previous) values so we take from auth
+              const { uid, email, displayName, photoURL } = auth.currentUser;
+              dispatch(addUser({ uid, email, displayName, photoURL }));
+            })
+            .catch((err) => {
+              setErrMsg("Error creating user");
+            });
         })
         .catch((err) => {
           setErrMsg("Email already in use!");
@@ -74,9 +77,9 @@ const Login = () => {
   return (
     <div>
       <Navbar />
-      <div className="absolute w-screen">
+      <div className="absolute w-full">
         <img
-          className="bg-gradient from-[#333] w-full"
+          className="bg-gradient from-black w-full"
           src={AUTH_BG}
           alt="login"
         />
