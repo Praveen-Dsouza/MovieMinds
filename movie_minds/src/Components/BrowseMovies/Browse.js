@@ -1,11 +1,13 @@
 import React from "react";
 import Navbar from "../Navbar";
-import useNowPlayingMovies from "../../Hooks/useNowPlayingMovies";
+import useNowPlayingMovies from "../../Hooks/usePopularMovies";
 import MainContainer from "./MainContainer";
 import SecondaryContainer from "./SecondaryContainer"
+import usePopularMovies from "../../Hooks/usePopularMovies";
 
 const Browse = () => {
   useNowPlayingMovies();
+  usePopularMovies();
 
   return (
     <div>
