@@ -1,3 +1,46 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* ================================ Custom Scrollbar =================================== */
+
+/* Turn on custom 8px wide scrollbar */
+::-webkit-scrollbar {
+    /* This is more usable for users trying to click it. */
+    background-color: #FFFFFF;
+    border-radius: 6px;
+    -webkit-border-radius: 6px;
+    width: 6px;
+}
+
+/* Hover effect for both scrollbar area and scrollbar 'thumb' */
+::-webkit-scrollbar:hover {
+    background-color: #FFFFFF;
+}
+
+/* The scrollbar 'thumb' ...that marque oval shape in a scrollbar */
+::-webkit-scrollbar-thumb:vertical {
+    background: lightgray;
+    border-radius: 100px;
+    -webkit-border-radius: 100px;
+}
+
+::-webkit-scrollbar-thumb:vertical:active {
+    /* background: #888; Some darker color when you click on it*/
+    border-radius: 100px;
+    -webkit-border-radius: 100px;
+}
+
+::-webkit-scrollbar:horizontal {
+    height: 10px;
+    border-radius: 6px;
+    -webkit-border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:horizontal {
+    background: lightgray;
+    border-radius: 100px;
+    -webkit-border-radius: 100px;
+}
+
+/* ================================ Custom Scrollbar Ends =================================== */

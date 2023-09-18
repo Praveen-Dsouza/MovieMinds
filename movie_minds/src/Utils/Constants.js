@@ -20,3 +20,5 @@ export const API_OPTIONS = {
 };
 
 export const YT_URL = 'https://www.youtube.com/embed'
+
+export const TMDB_IMAGE_URL = 'https://image.tmdb.org/t/p/w780'
