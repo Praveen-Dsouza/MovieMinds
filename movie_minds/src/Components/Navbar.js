@@ -4,7 +4,7 @@ import { signOut } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { onAuthStateChanged } from "firebase/auth";
-import { addUser, removeUser } from "../Utils/userSlice";
+import { addUser, removeUser } from "../Utils/StoreSlice/User";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -43,11 +43,14 @@ const Navbar = () => {
       {user && (
         <div className="flex p-2">
           <img
-            className="w-9 h-9"
+            className="w-9 h-9 rounded-md"
             src={user?.photoURL}
             alt="user_icon"
           />
-          <button onClick={handleSignOut} className="font-bold text-white text-2xl">
+          <button
+            onClick={handleSignOut}
+            className="font-bold text-white text-2xl"
+          >
             (Sign Out)
           </button>
         </div>

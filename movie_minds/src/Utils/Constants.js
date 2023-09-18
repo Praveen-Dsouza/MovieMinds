@@ -8,3 +8,17 @@ export const USER_AVATAR =
 
 export const AUTH_BG =
   "https://assets.nflxext.com/ffe/siteui/vlv3/42df4e1f-bef6-499e-87ff-c990584de314/5e7c383c-1f88-4983-b4da-06e14c0984ba/IN-en-20230904-popsignuptwoweeks-perspective_alpha_website_large.jpg";
+
+export const ACCESS_TOKEN = 'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3YTQ2YjczNDkxYzM0ODEwY2ZkZmU5YmNjYmI3YmMzNCIsInN1YiI6IjY1MDZhNGI0MTA5ZGVjMDBjYTA3MzQwOCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.SaI3ReLkfkPebWJYXRLrRLaQdHwvbIcWL4TJz4zdAsU'
+
+export const TMDB_MOVIE_URL = 'https://api.themoviedb.org/3/movie'
+
+export const API_OPTIONS = {
+  method: 'GET',
+  headers: {
+    accept: 'application/json',
+    Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3YTQ2YjczNDkxYzM0ODEwY2ZkZmU5YmNjYmI3YmMzNCIsInN1YiI6IjY1MDZhNGI0MTA5ZGVjMDBjYTA3MzQwOCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.SaI3ReLkfkPebWJYXRLrRLaQdHwvbIcWL4TJz4zdAsU'
+  }
+};
+
+export const YT_URL = 'https://www.youtube.com/embed'

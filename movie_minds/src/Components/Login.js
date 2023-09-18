@@ -8,7 +8,7 @@ import {
 } from "firebase/auth";
 import { auth } from "../Utils/Firebase";
 import { useDispatch } from "react-redux";
-import { addUser } from "../Utils/userSlice";
+import { addUser } from "../Utils/StoreSlice/User";
 import { AUTH_BG, USER_AVATAR } from "../Utils/Constants";
 
 const Login = () => {
@@ -45,7 +45,7 @@ const Login = () => {
           console.log("user", user);
           updateProfile(user, {
             displayName: inputUsernameValue,
-            photoURL: USER_AVATAR
+            photoURL: USER_AVATAR,
           })
             .then(() => {
               // we cant extract from user since it will not have updated(previous) values so we take from auth
