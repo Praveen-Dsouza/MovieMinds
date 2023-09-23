@@ -5,10 +5,14 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { onAuthStateChanged } from "firebase/auth";
 import { addUser, removeUser } from "../Utils/StoreSlice/User";
+import { toggleGptSearchView } from "../Utils/StoreSlice/GPT";
+import { SUPPORTED_LANGUAGES } from "../Utils/Constants";
+import { changeLanguage } from "../Utils/StoreSlice/Config";
 
 const Navbar = () => {
   const navigate = useNavigate();
   const user = useSelector((store) => store.user);
+  const showGptSearch = useSelector((store) => store.gpt.showGptSearch)
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -37,13 +41,29 @@ const Navbar = () => {
       });
   };
 
+  const handleGptSearch = () => {
+    dispatch(toggleGptSearchView())
+  }
+
+  const handleLanguageChange = (e) => {
+    dispatch(changeLanguage(e.target.value))
+  }
+
   return (
     <div className="absolute px-8 py-2 bg-gradient-to-b from-black z-10 w-full flex justify-between">
       <p className="text-[#B20710] font-bold text-3xl">MovieMinds</p>
       {user && (
         <div className="flex p-2">
+          {showGptSearch && <select className="px-2 my-1 bg-gray-900 text-white text-lg" onChange={handleLanguageChange}>
+            {SUPPORTED_LANGUAGES.map((lang) => <option key={lang.identifier} value={lang.identifier}>{lang.name}</option>)}
+          </select>}
+          <button 
+            className="p-1 px-3 mx-2 my-1 font-semibold bg-purple-800 text-white rounded-lg text-xl"
+            onClick={handleGptSearch}
+            >GPT Search
+          </button>
           <img
-            className="w-9 h-9 rounded-md"
+            className="w-9 h-9 my-1 rounded-md"
             src={user?.photoURL}
             alt="user_icon"
           />

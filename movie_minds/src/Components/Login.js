@@ -9,7 +9,7 @@ import {
 import { auth } from "../Utils/Firebase";
 import { useDispatch } from "react-redux";
 import { addUser } from "../Utils/StoreSlice/User";
-import { AUTH_BG, USER_AVATAR } from "../Utils/Constants";
+import { BG_URL, USER_AVATAR } from "../Utils/Constants";
 
 const Login = () => {
   const [isSignInForm, setisSignInForm] = useState(true);
@@ -79,7 +79,7 @@ const Login = () => {
       <div className="absolute w-full">
         <img
           className="bg-gradient from-black w-full"
-          src={AUTH_BG}
+          src={BG_URL}
           alt="login"
         />
       </div>
