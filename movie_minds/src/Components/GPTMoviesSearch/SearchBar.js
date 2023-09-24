@@ -55,7 +55,7 @@ const SearchBar = () => {
       >
         <input
           ref={searchText}
-          type="text"
+          type="search"
           className="px-4 py-1 m-4 col-span-9 rounded-lg text-lg"
           placeholder={lang[langKey].gptSearchPlaceholder}
         />
