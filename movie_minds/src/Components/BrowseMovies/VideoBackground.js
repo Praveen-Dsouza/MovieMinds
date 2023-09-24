@@ -1,5 +1,5 @@
 import React from 'react'
-import { YT_URL } from '../../Utils/Constants'
+import { YT_URL } from '../../Utils/Constants/Constants'
 import { useSelector } from 'react-redux'
 import useMovieTrailer from '../../Hooks/useMovieTrailer'
 

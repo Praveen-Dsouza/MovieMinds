@@ -9,7 +9,7 @@ import {
 import { auth } from "../Utils/Firebase";
 import { useDispatch } from "react-redux";
 import { addUser } from "../Utils/StoreSlice/User";
-import { BG_URL, USER_AVATAR } from "../Utils/Constants";
+import { BG_URL, USER_AVATAR } from "../Utils/Constants/Constants";
 
 const Login = () => {
   const [isSignInForm, setisSignInForm] = useState(true);

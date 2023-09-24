@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { API_OPTIONS, TMDB_MOVIE_URL } from '../Utils/Constants';
+import { API_OPTIONS, TMDB_MOVIE_URL } from '../Utils/Constants/Constants';
 import { addPopularMovies } from '../Utils/StoreSlice/Movies';
 import { GETPOPULARMOVIES } from '../Utils/ApiEndpoints';
 

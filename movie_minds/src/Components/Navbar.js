@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { onAuthStateChanged } from "firebase/auth";
 import { addUser, removeUser } from "../Utils/StoreSlice/User";
 import { toggleGptSearchView } from "../Utils/StoreSlice/GPT";
-import { SUPPORTED_LANGUAGES } from "../Utils/Constants";
+import { SUPPORTED_LANGUAGES } from "../Utils/Constants/Constants";
 import { changeLanguage } from "../Utils/StoreSlice/Config";
 
 const Navbar = () => {
@@ -60,7 +60,7 @@ const Navbar = () => {
           <button 
             className="p-1 px-3 mx-2 my-1 font-semibold bg-purple-800 text-white rounded-lg text-xl"
             onClick={handleGptSearch}
-            >GPT Search
+            >{showGptSearch ? 'Home' : 'GPT Search'}
           </button>
           <img
             className="w-9 h-9 my-1 rounded-md"
