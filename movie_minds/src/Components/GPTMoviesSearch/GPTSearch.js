@@ -8,13 +8,15 @@ const GPTSearch = () => {
     <div>
        <div className="w-full -z-10 fixed">
         <img
-          className="bg-gradient from-black w-full"
+          className="h-screen object-cover bg-gradient from-black w-full"
           src={BG_URL}
-          alt="login"
+          alt="gpt_search"
         />
       </div>
-      <SearchBar/>
-      <MovieSuggestion/>
+      <div className=''>
+        <SearchBar/>
+        <MovieSuggestion/>
+      </div>
     </div>
   )
 }

@@ -13,11 +13,11 @@ import { BG_URL, USER_AVATAR } from "../Utils/Constants/Constants";
 
 const Login = () => {
   const [isSignInForm, setisSignInForm] = useState(true);
+  const dispatch = useDispatch();
+  const [errMsg, setErrMsg] = useState();
   const email = useRef(null);
   const password = useRef(null);
   const name = useRef(null);
-  const [errMsg, setErrMsg] = useState();
-  const dispatch = useDispatch();
 
   const toggleSignInForm = () => {
     setisSignInForm(!isSignInForm);
@@ -78,16 +78,16 @@ const Login = () => {
       <Navbar />
       <div className="absolute w-full">
         <img
-          className="bg-gradient from-black w-full"
+          className="h-screen object-cover bg-gradient from-black w-full"
           src={BG_URL}
           alt="login"
         />
       </div>
       <form
         onSubmit={(e) => e.preventDefault()}
-        className="w-3/12 absolute p-12 bg-black my-36 mx-auto right-0 left-0 text-white rounded-lg bg-opacity-80"
+        className="w-8/12 md:w-3/12 absolute p-8 md:p-12 bg-black my-28 md:my-36 mx-auto right-0 left-0 text-white rounded-md md:rounded-lg bg-opacity-80"
       >
-        <h1 className="font-bold text-3xl py-4">
+        <h1 className="font-bold text-xl md:text-3xl py-2 md:py-4">
           {isSignInForm ? "Sign In" : "Sign Up"}
         </h1>
         {!isSignInForm && (
@@ -95,29 +95,29 @@ const Login = () => {
             ref={name}
             type="text"
             placeholder="Full Name"
-            className="p-2 my-2 w-full bg-gray-700 rounded-lg text-base"
+            className="p-1 md:p-2 my-1 md:my-2 w-full bg-gray-700 rounded-md md:rounded-lg text-sm md:text-base"
           />
         )}
         <input
           ref={email}
           type="email"
           placeholder="Email Address"
-          className="p-2 my-2 w-full bg-gray-700 rounded-lg text-base"
+          className="p-1 md:p-2 my-1 md:my-2 w-full bg-gray-700 rounded-md md:rounded-lg text-sm md:text-base"
         />
         <input
           ref={password}
           type="password"
           placeholder="Password"
-          className="p-2 my-2 w-full bg-gray-700 rounded-lg text-base"
+          className="p-1 md:p-2 my-1 md:my-2 w-full bg-gray-700 rounded-md md:rounded-lg text-sm md:text-base"
         />
-        <p className="text-red-500 text-base font-bold">{errMsg}</p>
+        <p className="text-red-500 text-sm md:text-base font-bold">{errMsg}</p>
         <button
-          className="p-2 my-6 bg-red-700 w-full rounded-lg text-base"
+          className="p-1 md:p-2 my-4 md:my-6 bg-red-700 w-full rounded-md md:rounded-lg text-sm md:text-base"
           onClick={handleButtonClick}
         >
           {isSignInForm ? "Sign In" : "Sign Up"}
         </button>
-        <p className="py-2 text-sm cursor-pointer" onClick={toggleSignInForm}>
+        <p className="py-1 md:py-2 text-xs md:text-sm cursor-pointer" onClick={toggleSignInForm}>
           {isSignInForm
             ? "New to MovieMinds? Sign Up Now"
             : "Already registered? Sign In Now"}

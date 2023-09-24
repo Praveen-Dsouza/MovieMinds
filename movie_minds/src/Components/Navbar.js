@@ -51,15 +51,15 @@ const Navbar = () => {
   }
 
   return (
-    <div className="absolute px-8 py-2 bg-gradient-to-b from-black z-10 w-full flex justify-between">
-      <p className="text-[#B20710] font-bold text-3xl">MovieMinds</p>
+    <div className="absolute px-6 md:px-8 py-1 md:py-2 bg-gradient-to-b from-black z-10 w-full flex flex-col md:flex-row md:justify-between">
+      <p className="text-[#B20710] font-bold text-3xl mx-auto md:mx-0">MovieMinds</p>
       {user && (
-        <div className="flex p-2">
+        <div className="flex p-1 md:p-2 justify-between">
           {showGptSearch && <select className="px-2 my-1 bg-gray-900 text-white text-lg" onChange={handleLanguageChange}>
             {SUPPORTED_LANGUAGES.map((lang) => <option key={lang.identifier} value={lang.identifier}>{lang.name}</option>)}
           </select>}
           <button 
-            className="p-1 px-3 mx-2 my-1 font-semibold bg-purple-800 text-white rounded-lg text-xl"
+            className="p-1 px-2 md:px-3 mx-2 my-1 font-semibold bg-purple-800 text-white rounded-lg text-lg md:text-xl"
             onClick={handleGptSearch}
             >{showGptSearch ? 'Home' : 'GPT Search'}
           </button>
@@ -70,7 +70,7 @@ const Navbar = () => {
           />
           <button
             onClick={handleSignOut}
-            className="font-bold text-white text-2xl"
+            className="font-bold text-white text-xl md:text-2xl"
           >
             (Sign Out)
           </button>
