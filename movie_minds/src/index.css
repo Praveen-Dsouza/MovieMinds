@@ -7,7 +7,7 @@
 /* Turn on custom 8px wide scrollbar */
 ::-webkit-scrollbar {
     /* This is more usable for users trying to click it. */
-    background-color: #FFFFFF;
+    background-color: cadetblue;
     border-radius: 6px;
     -webkit-border-radius: 6px;
     width: 6px;
@@ -15,7 +15,7 @@
 
 /* Hover effect for both scrollbar area and scrollbar 'thumb' */
 ::-webkit-scrollbar:hover {
-    background-color: #FFFFFF;
+    background-color: #000000;
 }
 
 /* The scrollbar 'thumb' ...that marque oval shape in a scrollbar */
@@ -38,7 +38,7 @@
 }
 
 ::-webkit-scrollbar-thumb:horizontal {
-    background: lightgray;
+    background: #0000008f;
     border-radius: 100px;
     -webkit-border-radius: 100px;
 }
