@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { onAuthStateChanged } from "firebase/auth";
 import { addUser, removeUser } from "../Utils/StoreSlice/User";
-import { toggleGptSearchView } from "../Utils/StoreSlice/GPT";
+import { clearGptMovieResults, toggleGptSearchView } from "../Utils/StoreSlice/GPT";
 import { SUPPORTED_LANGUAGES } from "../Utils/Constants/Constants";
 import { changeLanguage } from "../Utils/StoreSlice/Config";
 
@@ -43,6 +43,7 @@ const Navbar = () => {
 
   const handleGptSearch = () => {
     dispatch(toggleGptSearchView())
+    dispatch(clearGptMovieResults())
   }
 
   const handleLanguageChange = (e) => {
