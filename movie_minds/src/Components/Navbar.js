@@ -55,11 +55,11 @@ const Navbar = () => {
       <p className="text-[#B20710] font-bold text-2xl md:text-3xl mx-auto md:mx-0">MovieMinds</p>
       {user && (
         <div className="flex p-1 md:p-2 justify-between">
-          {showGptSearch && <select className="px-2 my-1 bg-gray-900 text-white text-lg" onChange={handleLanguageChange}>
+          {showGptSearch && <select className="px-1 md:px-2 my-0 md:my-1 bg-gray-900 text-white text-base md:text-lg" onChange={handleLanguageChange}>
             {SUPPORTED_LANGUAGES.map((lang) => <option key={lang.identifier} value={lang.identifier}>{lang.name}</option>)}
           </select>}
           <button 
-            className="p-1 px-2 md:px-3 mx-1 md:mx-2 my-1 font-semibold bg-purple-800 text-white rounded-lg text-lg md:text-xl"
+            className="p-1 px-2 md:px-3 mx-1 md:mx-2 my-1 font-semibold bg-purple-800 text-white rounded-md md:rounded-lg text-base md:text-xl"
             onClick={handleGptSearch}
             >{showGptSearch ? 'Home' : 'GPT Search'}
           </button>
