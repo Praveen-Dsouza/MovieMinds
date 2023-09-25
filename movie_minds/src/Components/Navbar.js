@@ -52,7 +52,7 @@ const Navbar = () => {
 
   return (
     <div className="absolute px-6 md:px-8 py-1 md:py-2 bg-gradient-to-b from-black z-10 w-full flex flex-col md:flex-row md:justify-between">
-      <p className="text-[#B20710] font-bold text-2xl md:text-3xl mx-auto md:mx-0">MovieMinds</p>
+      <p className="text-[#B20710] font-bold text-3xl mx-auto md:mx-0">MovieMinds</p>
       {user && (
         <div className="flex p-1 md:p-2 justify-between">
           {showGptSearch && <select className="px-1 md:px-2 my-0 md:my-1 bg-gray-900 text-white text-base md:text-lg" onChange={handleLanguageChange}>
