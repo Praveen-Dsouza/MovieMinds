@@ -8,6 +8,7 @@ import { addUser, removeUser } from "../Utils/StoreSlice/User";
 import { clearGptMovieResults, toggleGptSearchView } from "../Utils/StoreSlice/GPT";
 import { SUPPORTED_LANGUAGES } from "../Utils/Constants/Constants";
 import { changeLanguage } from "../Utils/StoreSlice/Config";
+import logout from "../Utils/Icons/logout.jpg";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -63,17 +64,23 @@ const Navbar = () => {
             onClick={handleGptSearch}
             >{showGptSearch ? 'Home' : 'GPT Search'}
           </button>
-          <img
-            className="w-9 h-9 my-1 rounded-md"
-            src={user?.photoURL}
-            alt="user_icon"
-          />
-          <button
-            onClick={handleSignOut}
-            className="font-bold text-white text-xl md:text-2xl"
-          >
-            (Sign Out)
-          </button>
+          <div className="flex">
+            <img
+              className="w-9 h-9 my-1 rounded-md"
+              src={user?.photoURL}
+              alt="user_icon"
+              title="profile image"
+            />
+            <button
+              onClick={handleSignOut}
+              className="font-bold text-white text-xl md:text-2xl"
+            >
+              <img className="h-9 w-9 ml-2 bg-none" 
+                src={logout} alt="logout_icon" 
+                title="signout"
+              />
+            </button>
+          </div>
         </div>
       )}
     </div>
