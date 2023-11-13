@@ -11,7 +11,7 @@ const MovieCard = ({ posterPath, title, movieData }) => {
 
   const handleMovieClick = (movie) => {
     dispatch(addMovieInfo(movie));
-    navigate('/info')
+    navigate(`/info/${movie.id}`)
   }
 
   return (
