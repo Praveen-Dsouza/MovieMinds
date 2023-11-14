@@ -24,7 +24,7 @@ const MovieInfo = () => {
             alt="gpt_search"
             />
         </div>
-        <div className="px-10 pt-2 md:pt-4">
+        <div className="px-6 md:px-10 pt-2 md:pt-4">
           <button className="font-bold text-white text-xl md:text-2xl" onClick={handleBackClick}>
             <img
                   className="h-9 w-9 ml-2 bg-none"
@@ -34,18 +34,18 @@ const MovieInfo = () => {
                 />
           </button>
         </div>
-      <div className="px-10 py-6">
+      <div className="px-6 md:px-10 py-3 md:py-6">
         <img
           className="rounded-lg w-screen h-screen bg-blend-lighten"
           src={`${TMDB_IMAGE_URL}/${poster_path}`}
           alt=""
         />
       </div>
-      <div className="px-10">
-        <p className="text-white text-3xl md:text-5xl font-bold">{title}</p>
+      <div className="px-6 md:px-10">
+        <p className="text-red-500 text-3xl md:text-5xl font-bold">{title}</p>
       </div>
-      <div className="text-white font-semibold text-xl md:text-3xl px-10 py-2 md:py-4">{overview}</div>
-      <div className="text-white font-medium px-10 pb-4 text-xl md:text-2xl">Ratings: {vote_average?.toFixed(1)}/10</div>
+      <div className="text-white font-semibold text-xl md:text-3xl px-6 md:px-10 py-2 md:py-4">{overview}</div>
+      <div className="text-orange-300 font-medium px-6 md:px-10 pb-2 md:pb-4 text-xl md:text-2xl">Ratings: {vote_average?.toFixed(1)}/10</div>
     </div>
   );
 };
