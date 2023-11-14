@@ -4,6 +4,7 @@ import Browse from "./BrowseMovies/Browse";
 import { createBrowserRouter } from "react-router-dom";
 import { RouterProvider } from "react-router-dom";
 import MovieInfo from "./MovieInfo";
+import Error from "./Error";
 
 const Body = () => {
   const routes = createBrowserRouter([
@@ -19,6 +20,10 @@ const Body = () => {
       path: "/info/:id",
       element: <MovieInfo />,
     },
+    {
+      path: "*",
+      element: <Error />
+    }
   ]);
 
   return (
