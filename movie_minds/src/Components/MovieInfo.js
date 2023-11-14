@@ -2,11 +2,17 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { TMDB_IMAGE_URL } from "../Utils/Constants/Constants";
 import { BG_URL } from "../Utils/Constants/Constants";
+import { useNavigate } from "react-router";
+import back from '../Utils/Icons/back.jpg';
 
 const MovieInfo = () => {
   const movieData = useSelector((store) => store.info.movieInfo);
+  const navigate = useNavigate();
+  const handleBackClick = () => navigate(-1)
   console.log("data..", movieData);
-  if (!movieData) return null;
+  if (!movieData) {
+    return <p>Oops Something went wrong!</p>
+  };
   const { title, overview, poster_path, vote_average } = movieData;
 
   return (
@@ -18,11 +24,19 @@ const MovieInfo = () => {
             alt="gpt_search"
             />
         </div>
-
-
-      <div className="p-10">
+        <div className="px-10 pt-2 md:pt-4">
+          <button className="font-bold text-white text-xl md:text-2xl" onClick={handleBackClick}>
+            <img
+                  className="h-9 w-9 ml-2 bg-none"
+                  src={back}
+                  alt="back_icon"
+                  title="backToBrowse"
+                />
+          </button>
+        </div>
+      <div className="px-10 py-6">
         <img
-          className="rounded-lg w-screen h-screen"
+          className="rounded-lg w-screen h-screen bg-blend-lighten"
           src={`${TMDB_IMAGE_URL}/${poster_path}`}
           alt=""
         />
@@ -31,7 +45,7 @@ const MovieInfo = () => {
         <p className="text-white text-3xl md:text-5xl font-bold">{title}</p>
       </div>
       <div className="text-white font-semibold text-xl md:text-3xl px-10 py-2 md:py-4">{overview}</div>
-      <div className="text-white font-medium px-10 pb-4 text-xl md:text-2xl">Ratings: {vote_average.toFixed(1)}/10</div>
+      <div className="text-white font-medium px-10 pb-4 text-xl md:text-2xl">Ratings: {vote_average?.toFixed(1)}/10</div>
     </div>
   );
 };
