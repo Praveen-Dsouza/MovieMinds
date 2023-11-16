@@ -9,7 +9,7 @@ const useMovieTrailer = ( movieId ) => {
     const trailerVideo = useSelector((store) => store.movies.trailerVideo)
 
     useEffect(() => {
-        if (!trailerVideo)
+        // if (!trailerVideo)
             getMovieTrailer();
     }, [])
 
