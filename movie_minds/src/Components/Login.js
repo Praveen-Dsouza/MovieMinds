@@ -117,7 +117,7 @@ const Login = () => {
         >
           {isSignInForm ? "Sign In" : "Sign Up"}
         </button>
-        <p className="py-1 md:py-2 text-xs md:text-sm cursor-pointer" onClick={toggleSignInForm}>
+        <p className="py-1 md:py-2 text-[10px] md:text-sm cursor-pointer" onClick={toggleSignInForm}>
           {isSignInForm
             ? "New to MovieMinds? Sign Up Now"
             : "Already registered? Sign In Now"}
