@@ -13,11 +13,6 @@
     width: 6px;
 }
 
-/* Hover effect for both scrollbar area and scrollbar 'thumb' */
-::-webkit-scrollbar:hover {
-    background-color: #000000;
-}
-
 /* The scrollbar 'thumb' ...that marque oval shape in a scrollbar */
 ::-webkit-scrollbar-thumb:vertical {
     background: lightgray;
@@ -26,13 +21,13 @@
 }
 
 ::-webkit-scrollbar-thumb:vertical:active {
-    /* background: #888; Some darker color when you click on it*/
     border-radius: 100px;
     -webkit-border-radius: 100px;
 }
 
 ::-webkit-scrollbar:horizontal {
-    height: 10px;
+    background-color: lightgray;
+    height: 8px;
     border-radius: 6px;
     -webkit-border-radius: 6px;
 }
