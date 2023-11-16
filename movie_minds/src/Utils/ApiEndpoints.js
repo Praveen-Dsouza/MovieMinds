@@ -8,4 +8,6 @@ export const GETTOPRATEDMOVIES = `top_rated?page=1`
 
 export const GETUPCOMINGMOVIES = `upcoming?page=1`
 
+export const GETMOVIEINFO = `?language=en-US`
+
 

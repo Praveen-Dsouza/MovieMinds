@@ -4,16 +4,22 @@ import { TMDB_IMAGE_URL } from "../Utils/Constants/Constants";
 import { BG_URL } from "../Utils/Constants/Constants";
 import { useNavigate } from "react-router";
 import back from "../Utils/Icons/back.jpg";
+import useMovieInfo from "../Hooks/useMovieInfo";
+import { useLocation } from "react-router-dom";
 
 const MovieInfo = () => {
-  const movieData = useSelector((store) => store.info.movieInfo);
+  const location = useLocation();
+  const movieId = location.pathname.match(/\/info\/(\d+)/)[1]
   const navigate = useNavigate();
   const handleBackClick = () => navigate(-1);
+  useMovieInfo(movieId)
+  const movieData = useSelector((store) => store.info.movieInfo);
   console.log("data..", movieData);
   
   // if (!movieData) {
   //   return null
   // }
+  
   const { title, overview, poster_path, vote_average } = movieData;
 
   return (
