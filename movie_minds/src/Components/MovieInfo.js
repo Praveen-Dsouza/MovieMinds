@@ -6,21 +6,34 @@ import { useNavigate } from "react-router";
 import back from "../Utils/Icons/back.jpg";
 import useMovieInfo from "../Hooks/useMovieInfo";
 import { useLocation } from "react-router-dom";
+import moment from 'moment';
 
 const MovieInfo = () => {
   const location = useLocation();
-  const movieId = location.pathname.match(/\/info\/(\d+)/)[1]
+  const movieId = location.pathname.match(/\/info\/(\d+)/)[1];
   const navigate = useNavigate();
   const handleBackClick = () => navigate(-1);
-  useMovieInfo(movieId)
+  useMovieInfo(movieId);
   const movieData = useSelector((store) => store.info.movieInfo);
   console.log("data..", movieData);
-  
+
   // if (!movieData) {
   //   return null
   // }
-  
-  const { title, overview, poster_path, vote_average } = movieData;
+
+  const convertToHoursMinutes = (minutes) => {
+    const duration = moment.duration(minutes, 'minutes');
+    const hours = duration.hours();
+    const minutesRemainder = duration.minutes();
+
+    const hoursText = hours > 0 ? `${hours}hr` : '';
+    const minutesText = minutesRemainder > 0 ? ` ${minutesRemainder}min` : '';
+
+    return hoursText + minutesText;
+  };
+
+  const { title, release_date, genres, runtime, overview, poster_path, vote_average } =
+    movieData;
 
   return (
     <div className="bg-gradient-to-tr from-black">
@@ -45,29 +58,40 @@ const MovieInfo = () => {
         </button>
       </div>
       {movieData && (
-        <div>
+        <div className="flex w-full">
           {poster_path && (
-            <div className="px-6 md:px-10 py-3 md:py-6">
+            <div className="pl-6 md:pl-10 w-1/3">
               <img
-                className="rounded-lg md:w-screen md:h-screen bg-blend-lighten"
+                className="rounded-lg md:w-screen md:h-screen bg-blend-lighten pb-4 md:pb-6"
                 src={`${TMDB_IMAGE_URL}/${poster_path}`}
                 alt=""
               />
             </div>
           )}
-          <div className="px-6 md:px-10">
-            <p className="text-red-500 text-3xl md:text-5xl font-bold">
-              {title}
-            </p>
-          </div>
-          <div className="text-white font-semibold text-xl md:text-3xl px-6 md:px-10 py-2 md:py-4">
-            {overview}
-          </div>
-          {vote_average && (
-            <div className="text-orange-300 font-medium px-6 md:px-10 pb-2 md:pb-4 text-xl md:text-2xl">
-              Ratings: <span>&#9733;</span> {vote_average?.toFixed(1)}{" "}
+          <div className="w-2/3">
+            <div className="px-6 md:px-10">
+              <p className="text-white text-3xl md:text-5xl font-bold">
+                {title}
+              </p>
             </div>
-          )}
+            <div className="flex text-lg md:text-2xl px-6 md:px-10 text-gray-300 font-semibold">
+              <p className="">{moment(release_date).format("DD/MM/YYYY")}</p>&nbsp;
+              <p className="">
+                •{genres?.map((item, index) => (
+                  <span key={index}>{item.name}{index < genres.length - 1 && ', '}</span>
+                ))}
+              </p>&nbsp;
+              <p>•{convertToHoursMinutes(runtime)}</p>
+            </div>
+            <div className="text-white font-semibold text-xl md:text-3xl px-6 md:px-10 py-2 md:py-4">
+              {overview}
+            </div>
+            {vote_average && (
+              <div className="text-orange-300 font-medium px-6 md:px-10 pb-2 md:pb-4 text-xl md:text-2xl">
+                Ratings: <span>&#9733;</span> {vote_average?.toFixed(1)}{" "}
+              </div>
+            )}
+          </div>
         </div>
       )}
     </div>
