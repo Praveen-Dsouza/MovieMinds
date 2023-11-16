@@ -83,12 +83,13 @@ const MovieInfo = () => {
               </p>&nbsp;
               <p>•{convertToHoursMinutes(runtime)}</p>
             </div>
-            <div className="text-white font-semibold text-xl md:text-3xl px-6 md:px-10 py-2 md:py-4">
-              {overview}
+            <div className="text-white font-semibold px-6 md:px-10 py-2 md:py-4">
+              <p className="text-xl md:text-3xl">Overview:</p>
+              <p className="text-base md:text-xl">{overview}</p>
             </div>
             {vote_average && (
               <div className="text-orange-300 font-medium px-6 md:px-10 pb-2 md:pb-4 text-xl md:text-2xl">
-                Ratings: <span>&#9733;</span> {vote_average?.toFixed(1)}{" "}
+                Ratings: <span>&#9733;</span> {vote_average?.toFixed(1)}
               </div>
             )}
           </div>
