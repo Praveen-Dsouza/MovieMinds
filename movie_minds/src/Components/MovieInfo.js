@@ -14,7 +14,7 @@ const MovieInfo = () => {
     return <p>Oops Something went wrong!</p>
   };
   const { title, overview, poster_path, vote_average } = movieData;
-
+  console.log('rating', vote_average?.toFixed(1)/2)
   return (
     <div className="bg-gradient-to-tr from-black">
         <div className="w-full -z-10 fixed">
@@ -45,7 +45,7 @@ const MovieInfo = () => {
         <p className="text-red-500 text-3xl md:text-5xl font-bold">{title}</p>
       </div>
       <div className="text-white font-semibold text-xl md:text-3xl px-6 md:px-10 py-2 md:py-4">{overview}</div>
-      <div className="text-orange-300 font-medium px-6 md:px-10 pb-2 md:pb-4 text-xl md:text-2xl">Ratings: {vote_average?.toFixed(1)}/10</div>
+      <div className="text-orange-300 font-medium px-6 md:px-10 pb-2 md:pb-4 text-xl md:text-2xl">Ratings: <span>&#9733;</span> {vote_average.toFixed(1)} </div>
     </div>
   );
 };
