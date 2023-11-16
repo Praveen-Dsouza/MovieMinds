@@ -13,7 +13,6 @@ const useMovieTrailer = ( movieId ) => {
             getMovieTrailer();
     }, [])
 
-    //
     const getMovieTrailer = async () => {
         const data = await fetch(`${TMDB_MOVIE_URL}/${movieId}/${GETMOVIETRAILER}`, API_OPTIONS);
         const json = await data.json()

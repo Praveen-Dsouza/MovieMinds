@@ -7,6 +7,8 @@ import back from "../Utils/Icons/back.jpg";
 import useMovieInfo from "../Hooks/useMovieInfo";
 import { useLocation } from "react-router-dom";
 import moment from 'moment';
+// import useMovieTrailer from "../Hooks/useMovieTrailer";
+// import VideoBackground from "./BrowseMovies/VideoBackground";
 
 const MovieInfo = () => {
   const location = useLocation();
@@ -19,6 +21,11 @@ const MovieInfo = () => {
 
   // if (!movieData) {
   //   return null
+  // }
+  // const trailer = useMovieTrailer(movieId)
+  // const handleWatchTrailer = () => {
+  //   console.log('clciked')
+  //   return trailer
   // }
 
   const convertToHoursMinutes = (minutes) => {
@@ -58,9 +65,9 @@ const MovieInfo = () => {
         </button>
       </div>
       {movieData && (
-        <div className="flex w-full">
+        <div className="md:flex w-full">
           {poster_path && (
-            <div className="pl-6 md:pl-10 w-1/3">
+            <div className="px-6 md:pl-10 md:w-1/3">
               <img
                 className="rounded-lg md:w-screen md:h-screen bg-blend-lighten pb-4 md:pb-6"
                 src={`${TMDB_IMAGE_URL}/${poster_path}`}
@@ -68,21 +75,26 @@ const MovieInfo = () => {
               />
             </div>
           )}
-          <div className="w-2/3">
+          <div className="md:w-2/3">
             <div className="px-6 md:px-10">
               <p className="text-white text-3xl md:text-5xl font-bold">
                 {title}
               </p>
             </div>
-            <div className="flex text-lg md:text-2xl px-6 md:px-10 text-gray-300 font-semibold">
-              <p className="">{moment(release_date).format("DD/MM/YYYY")}</p>&nbsp;
-              <p className="">
-                •{genres?.map((item, index) => (
+            <div className="pt-2 md:flex text-lg md:text-2xl px-6 md:px-10 text-gray-300 font-semibold">
+              <p className="md:pr-4">• {moment(release_date).format("DD/MM/YYYY")}</p>
+              <p className="md:pr-4">
+                • {genres?.map((item, index) => (
                   <span key={index}>{item.name}{index < genres.length - 1 && ', '}</span>
                 ))}
-              </p>&nbsp;
-              <p>•{convertToHoursMinutes(runtime)}</p>
+              </p>{' '}
+              <p>• {convertToHoursMinutes(runtime)}</p>
             </div>
+            {/* <div className="px-6 md:px-10"><button className="text-white font-semibold" onClick={handleWatchTrailer}>
+              Play Trailer
+              <VideoBackground movieId={movieId} />
+              </button>
+            </div> */}
             <div className="text-white font-semibold px-6 md:px-10 py-2 md:py-4">
               <p className="text-xl md:text-3xl">Overview:</p>
               <p className="text-base md:text-xl">{overview}</p>
