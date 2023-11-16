@@ -1,6 +1,6 @@
 "MovieMinds - Your Ultimate Movie Search Companion"
 
-🎬 MovieMinds is a web application that allows users to explore a wide range of movies. It provides features such as user authentication, movie browsing, and a powerful search functionality powered by ChatGPT. The application is built using ReactJS, Tailwind CSS, Redux, Firebase, and Git.
+🎬 MovieMinds is a web application that allows users to explore a wide range of movies. It provides features such as user authentication, movie browsing, and a powerful search functionality powered by ChatGPT. You can click on movie of your choice and view the details, also you can play the movie trailer. The application is built using ReactJS, Tailwind CSS, Redux, Firebase, and Git.
 
 ## Live Demo
 - See the live demo of MovieMinds: https://movie-minds.web.app/browse
