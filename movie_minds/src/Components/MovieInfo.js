@@ -27,7 +27,7 @@ const MovieInfo = () => {
         <div className="px-6 md:px-10 pt-2 md:pt-4">
           <button className="font-bold text-white text-xl md:text-2xl" onClick={handleBackClick}>
             <img
-                  className="h-9 w-9 ml-2 bg-none"
+                  className="h-6 md:h-9 w-6 md:w-9"
                   src={back}
                   alt="back_icon"
                   title="backToBrowse"
