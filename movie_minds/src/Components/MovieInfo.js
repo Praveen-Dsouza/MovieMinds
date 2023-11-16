@@ -70,13 +70,6 @@ const MovieInfo = () => {
           )}
         </div>
       )}
-        {/* (
-        {!movieData.length && <div className="flex flex-col items-center justify-center h-screen">
-          <h1 className="text-3xl md:text-5xl font-bold mb-1 md:mb-2 text-white">
-            Oops Something went wrong!
-          </h1>
-        </div>}
-    ); */}
     </div>
   );
 };
