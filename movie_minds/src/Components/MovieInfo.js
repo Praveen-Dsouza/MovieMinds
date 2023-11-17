@@ -113,9 +113,9 @@ const MovieInfo = () => {
             {isPopupVisible && (
                 <div className="fixed inset-0 z-50 flex items-center justify-center w-screen">
                   <div className="absolute inset-0 bg-black opacity-50"></div>
-                  <div className="bg-white p-0 rounded shadow-lg z-10 absolute md:h-screen w-[80%] flex justify-end">
+                  <div className="bg-white p-0 rounded shadow-lg z-10 absolute md:h-screen w-screen md:w-[80%] flex justify-end">
                     <div className="absolute p-2 md:p-4 hover:visible">
-                      <button className=' bg-transparent text-white text-lg md:text-3xl rounded-md md:rounded-lg hover:bg-opacity-80' 
+                      <button className='bg-transparent text-white text-xl md:text-3xl rounded-md md:rounded-lg hover:bg-opacity-80' 
                         onClick={handleWatchTrailer}>
                           <span>x</span>
                       </button>
