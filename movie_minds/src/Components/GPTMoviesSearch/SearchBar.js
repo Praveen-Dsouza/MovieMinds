@@ -21,8 +21,6 @@ const SearchBar = () => {
       return;
     }
 
-    console.log(gptResults.choices[0]?.message?.content);
-
     /* Comma separted movies : 
        ["Some Like It Hot", 
        "Airplane!", 

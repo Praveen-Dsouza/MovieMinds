@@ -18,7 +18,6 @@ const MovieInfo = () => {
   const handleBackClick = () => navigate(-1);
   useMovieInfo(movieId);
   const movieData = useSelector((store) => store.info.movieInfo);
-  console.log("data..", movieData);
   const [isPopupVisible, setPopupVisible] = useState(false);
 
   useMovieTrailer(movieId);
@@ -27,11 +26,8 @@ const MovieInfo = () => {
     return null;
   }
 
-  const handleWatchTrailer = () => {
-    console.log("clciked");
-    setPopupVisible(!isPopupVisible);
-  };
-
+  const handleWatchTrailer = () => setPopupVisible(!isPopupVisible);
+  
   const convertToHoursMinutes = (minutes) => {
     const duration = moment.duration(minutes, "minutes");
     const hours = duration.hours();

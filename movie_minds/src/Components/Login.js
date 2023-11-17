@@ -42,7 +42,6 @@ const Login = () => {
         .then((resp) => {
           // Signed in
           const user = resp.user;
-          console.log("user", user);
           updateProfile(user, {
             displayName: inputUsernameValue,
             photoURL: USER_AVATAR,
@@ -65,7 +64,6 @@ const Login = () => {
         .then((resp) => {
           // Signed in
           const user = resp.user;
-          console.log("sign in user", user);
         })
         .catch((err) => {
           setErrMsg(`Sorry, we can't find an account with this email!`);

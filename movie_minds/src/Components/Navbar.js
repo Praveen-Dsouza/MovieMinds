@@ -51,7 +51,6 @@ const Navbar = () => {
   };
 
   const handleLanguageChange = (e) => {
-    console.log('lang', e.target.value)
     e.preventDefault();
     dispatch(changeLanguage(e.target.value));
   };
