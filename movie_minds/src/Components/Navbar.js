@@ -65,7 +65,7 @@ const Navbar = () => {
           <div className="flex">
             {showGptSearch && (
               <select
-                className="px-1 md:px-2 my-0 md:my-1 bg-gray-900 text-white text-base md:text-lg"
+                className="px-1 md:px-2 my-0 md:my-1 bg-gray-900 hover:bg-gray-800 hover:text-gray-300 cursor-pointer text-white text-base md:text-lg"
                 onChange={handleLanguageChange}
               >
                 {SUPPORTED_LANGUAGES.map((lang) => (
@@ -78,14 +78,14 @@ const Navbar = () => {
           </div>
           <div className="flex justify-end">
             <button
-              className="p-1 px-2 md:px-3 mx-1 md:mx-2 my-1 font-semibold bg-purple-800 text-white rounded-md md:rounded-lg text-base md:text-xl"
+              className="p-1 px-2 md:px-3 mx-1 md:mx-2 my-1 font-semibold bg-purple-800 hover:bg-purple-600 hover:text-gray-100 text-white rounded-md md:rounded-lg text-base md:text-xl"
               onClick={handleGptSearch}
             >
               {showGptSearch ? "Home" : "GPT Search"}
             </button>
             <div className="flex">
               <img
-                className="w-9 h-9 my-1 rounded-md"
+                className="w-9 h-9 my-1 rounded-md "
                 src={user?.photoURL}
                 alt="user_icon"
                 title="profile image"
@@ -95,7 +95,7 @@ const Navbar = () => {
                 className="font-bold text-white text-xl md:text-2xl"
               >
                 <img
-                  className="h-9 w-9 ml-2 bg-none"
+                  className="h-9 w-9 ml-2 bg-none rounded-full hover:border-solid hover:border-2 ease-in-out hover:scale-90"
                   src={logout}
                   alt="logout_icon"
                   title="signout"

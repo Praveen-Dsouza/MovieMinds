@@ -110,12 +110,12 @@ const Login = () => {
         />
         <p className="text-red-500 text-sm md:text-base font-bold">{errMsg}</p>
         <button
-          className="p-1 md:p-2 my-4 md:my-6 bg-red-700 w-full rounded-md md:rounded-lg text-sm md:text-base"
+          className="p-1 md:p-2 my-4 md:my-6 bg-red-700 hover:bg-red-600 hover:text-gray-300 w-full rounded-md md:rounded-lg text-sm md:text-base"
           onClick={handleButtonClick}
         >
           {isSignInForm ? "Sign In" : "Sign Up"}
         </button>
-        <p className="py-1 md:py-2 text-[10px] md:text-sm cursor-pointer" onClick={toggleSignInForm}>
+        <p className="py-1 md:py-2 text-[10px] hover:text-gray-300 md:text-sm cursor-pointer" onClick={toggleSignInForm}>
           {isSignInForm
             ? "New to MovieMinds? Sign Up Now"
             : "Already registered? Sign In Now"}

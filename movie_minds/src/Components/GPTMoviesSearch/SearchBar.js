@@ -54,11 +54,11 @@ const SearchBar = () => {
         <input
           ref={searchText}
           type="search"
-          className="px-2 md:px-4 py-0 md:py-1 m-2 md:m-4 col-span-9 rounded-md md:rounded-lg text-sm md:text-lg"
+          className="px-2 md:px-4 py-0 md:py-1 m-2 md:m-4 col-span-9 rounded-md md:rounded-lg text-sm md:text-lg outline-none"
           placeholder={lang[langKey].gptSearchPlaceholder}
         />
         <button
-          className="py-1 md:py-2 px-1 md:px-4 m-2 md:m-4 bg-red-700 text-white text-sm md:text-lg rounded-md md:rounded-lg col-span-3"
+          className="py-1 md:py-2 px-1 md:px-4 m-2 md:m-4 bg-red-700 hover:bg-red-600 hover:text-gray-300 text-white text-sm md:text-lg rounded-md md:rounded-lg col-span-3"
           onClick={handleGPTSearchClick}
         >
           {lang[langKey].search}
