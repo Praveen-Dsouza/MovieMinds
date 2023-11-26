@@ -5,6 +5,9 @@
 ## Live Demo
 - See the live demo of MovieMinds: https://movie-minds.web.app/
 
+## Login Credentials
+- Email Address: Admin@gmail.com Password: Admin@123!
+
 ## Key Features:
 
 - User Authentication 🔒: Secure signup and signin functionality managed by Redux store and Firebase to ensure a seamless and safe user experience.

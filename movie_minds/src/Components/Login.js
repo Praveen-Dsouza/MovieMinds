@@ -93,7 +93,7 @@ const Login = () => {
             ref={name}
             type="text"
             placeholder="Full Name"
-            className="p-1 md:p-2 my-1 md:my-2 w-full bg-gray-700 rounded-md md:rounded-lg text-sm md:text-base"
+            className="p-2 my-1 md:my-2 w-full bg-gray-700 rounded-md md:rounded-lg text-sm md:text-base"
           />
         )}
         <input
@@ -108,7 +108,7 @@ const Login = () => {
           placeholder="Password"
           className="p-2 my-1 md:my-2 w-full bg-gray-700 rounded-md md:rounded-lg text-sm md:text-base outline-none"
         />
-        <p className="text-red-500 text-sm md:text-base font-bold">{errMsg}</p>
+        <p className="text-red-500 text-xs md:text-sm font-bold">{errMsg}</p>
         <button
           className="p-1 md:p-2 my-4 md:my-6 bg-red-700 hover:bg-red-600 hover:text-gray-300 w-full rounded-md md:rounded-lg text-sm md:text-base"
           onClick={handleButtonClick}
