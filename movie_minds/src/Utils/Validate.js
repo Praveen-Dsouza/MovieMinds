@@ -4,7 +4,7 @@ export const checkValidData = (email, password) => {
   const isEmailValid = VALIDATION_REG_EX["EMAIL"].test(email);
   const isPasswordValid = VALIDATION_REG_EX["PASSWORD"].test(password);
 
-  if (!isEmailValid) return <p className="text-xs md:text-sm md:h-10 overflow-y-auto">Email ID is invalid. It should contain the '@' symbol and end with '@gmail.com', '@email.com', '...'</p>;
+  if (!isEmailValid) return <p className="text-xs md:text-sm md:h-10 overflow-y-auto">Email ID is invalid. It should contain the '@' symbol and end with Example:'@gmail.com', '@email.com', ...</p>;
   if (!isPasswordValid)
     return (
         <p className="text-xs md:text-sm md:h-10 overflow-y-auto">
