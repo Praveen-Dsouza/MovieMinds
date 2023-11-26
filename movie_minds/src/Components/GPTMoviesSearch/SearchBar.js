@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import lang from "../../Utils/Constants/LanguageConstants";
 import { useDispatch, useSelector } from "react-redux";
 import OpenAI from "../../Utils/OpenAI";
-import { addGptMovieResults } from "../../Utils/StoreSlice/GPT";
+import { addGptMovieResults, gptSearchTrue } from "../../Utils/StoreSlice/GPT";
 import SearchMovieTMDB from "../../Utils/SearchMovieTMDB";
 
 const SearchBar = () => {
@@ -11,7 +11,7 @@ const SearchBar = () => {
   const dispatch = useDispatch();
 
   const handleGPTSearchClick = async () => {
-    const gptQuery = `Act as a Movie Recommendation system and suggest some movies for the query: ${searchText.current.value}. only give me names of 5 movies, comma seperated like the example result given ahead. Example Result: The Shawshank Redemption, The Godfather, The Dark Knight, Inception, The Matrix`;
+    const gptQuery = `Act as a Movie Recommendation system and suggest some movies for the query: ${searchText.current.value}. only give me names of 5 movies, comma seperated like the example result given ahead. Example Result: The Shawshank Redemption, The Godfather, The Dark Knight, Inception, The Matrix or give specific movie if there is a match, only give me names of 1 movie. Example Result: The Shawshank Redemption`;
     const gptResults = await OpenAI.chat.completions.create({
       messages: [{ role: "user", content: gptQuery }],
       model: "gpt-3.5-turbo",
@@ -43,6 +43,7 @@ const SearchBar = () => {
         movieResults: tmdbResults,
       })
     );
+    dispatch(gptSearchTrue());
   };
 
   return (

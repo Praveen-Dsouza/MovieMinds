@@ -7,6 +7,7 @@ import { onAuthStateChanged } from "firebase/auth";
 import { addUser, removeUser } from "../Utils/StoreSlice/User";
 import {
   clearGptMovieResults,
+  gptSearchFalse,
   toggleGptSearchView,
 } from "../Utils/StoreSlice/GPT";
 import { SUPPORTED_LANGUAGES } from "../Utils/Constants/Constants";
@@ -48,6 +49,7 @@ const Navbar = () => {
   const handleGptSearch = () => {
     dispatch(toggleGptSearchView());
     dispatch(clearGptMovieResults());
+    dispatch(gptSearchFalse());
   };
 
   const handleLanguageChange = (e) => {
