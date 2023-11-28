@@ -22,6 +22,8 @@ export const API_OPTIONS = {
 
 export const YT_URL = "https://www.youtube.com/embed";
 
+export const YT_VIDEO_TRAILER_QUERY = "&mute=1&autoplay=1&controls=0&showinfo=0&loop=1"
+
 export const TMDB_IMAGE_URL = "https://image.tmdb.org/t/p/w780";
 
 export const TMDB_SEARCH_URL = "https://api.themoviedb.org/3/search/movie?query="

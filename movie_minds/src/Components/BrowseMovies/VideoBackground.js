@@ -3,7 +3,7 @@ import { YT_URL } from '../../Utils/Constants/Constants'
 import { useSelector } from 'react-redux'
 import useMovieTrailer from '../../Hooks/useMovieTrailer'
 
-const VideoBackground = ({ movieId }) => {
+const VideoBackground = ({ movieId, query }) => {
     const trailerVideo = useSelector((store) => store.movies?.trailerVideo)
     useMovieTrailer(movieId);
  
@@ -11,7 +11,7 @@ const VideoBackground = ({ movieId }) => {
         <div className='w-full'>
             <iframe 
                 className="w-full aspect-video"
-                src={`${YT_URL}/${trailerVideo?.key}?&mute=1&autoplay=1&controls=0&showinfo=0&loop=1`} 
+                src={`${YT_URL}/${trailerVideo?.key}?${query}`} 
                 title="YouTube video player" 
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;"
             ></iframe>
