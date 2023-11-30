@@ -5,7 +5,7 @@ import { createBrowserRouter } from "react-router-dom";
 import { RouterProvider } from "react-router-dom";
 import Shimmer from "./Shimmer";
 
-const MovieInfo = lazy(() => import("./MovieInfo"));
+const MovieDetails = lazy(() => import("./MovieDetails"));
 const Error = lazy(() => import("./Error"));
 
 const Body = () => {
@@ -22,7 +22,7 @@ const Body = () => {
       path: "/info/:id",
       element: (
         <Suspense fallback={<Shimmer />}>
-          <MovieInfo />
+          <MovieDetails />
         </Suspense>
       ),
     },

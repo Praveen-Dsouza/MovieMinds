@@ -5,11 +5,12 @@ import { BG_URL } from "../Utils/Constants/Constants";
 import { useNavigate } from "react-router";
 import back from "../Utils/Icons/back.jpg";
 import useMovieInfo from "../Hooks/useMovieInfo";
+import useMovieCredits from "../Hooks/useMovieCredits";
 import { useLocation } from "react-router-dom";
 import moment from "moment";
 import useMovieTrailer from "../Hooks/useMovieTrailer";
 import VideoBackground from "./BrowseMovies/VideoBackground";
-import play from '../Utils/Icons/play.png';
+import play from "../Utils/Icons/play.png";
 
 const MovieInfo = () => {
   const location = useLocation();
@@ -17,17 +18,20 @@ const MovieInfo = () => {
   const navigate = useNavigate();
   const handleBackClick = () => navigate(-1);
   useMovieInfo(movieId);
-  const movieData = useSelector((store) => store.info.movieInfo);
+  useMovieCredits(movieId);
+  const movieInfo = useSelector((store) => store.details.movieInfo);
+  const movieCredits = useSelector((store) => store.details.movieCredits);
+  console.log("movieCredits", movieCredits);
   const [isPopupVisible, setPopupVisible] = useState(false);
 
   useMovieTrailer(movieId);
 
-  if (!movieData) {
+  if (!movieInfo) {
     return null;
   }
 
   const handleWatchTrailer = () => setPopupVisible(!isPopupVisible);
-  
+
   const convertToHoursMinutes = (minutes) => {
     const duration = moment.duration(minutes, "minutes");
     const hours = duration.hours();
@@ -47,7 +51,7 @@ const MovieInfo = () => {
     overview,
     poster_path,
     vote_average,
-  } = movieData;
+  } = movieInfo;
 
   return (
     <div className="bg-gradient-to-tr from-black">
@@ -71,7 +75,7 @@ const MovieInfo = () => {
           />
         </button>
       </div>
-      {movieData && (
+      {movieInfo && (
         <div className="md:flex w-full">
           {poster_path && (
             <div className="px-6 md:pl-10 md:w-1/3">
@@ -104,26 +108,34 @@ const MovieInfo = () => {
               <p>• {convertToHoursMinutes(runtime)}</p>
             </div>
             <div className="px-6 md:px-10 pt-2 md:pt-4">
-              <button className='flex bg-white text-black py-1 md:py-2 px-4 md:px-6 text-sm md:text-lg rounded-md md:rounded-lg hover:bg-opacity-80' 
-                  onClick={handleWatchTrailer}>
-                    <img className='w-3 h-3 md:w-5 md:h-5 my-1 mx-1' src={play} alt="play_icon"/>
-                    <span>Play Trailer</span>
+              <button
+                className="flex bg-white text-black py-1 md:py-2 px-4 md:px-6 text-sm md:text-lg rounded-md md:rounded-lg hover:bg-opacity-80"
+                onClick={handleWatchTrailer}
+              >
+                <img
+                  className="w-3 h-3 md:w-5 md:h-5 my-1 mx-1"
+                  src={play}
+                  alt="play_icon"
+                />
+                <span>Play Trailer</span>
               </button>
             </div>
             {isPopupVisible && (
-                <div className="fixed inset-0 z-50 flex items-center justify-center w-screen">
-                  <div className="absolute inset-0 bg-black opacity-50"></div>
-                  <div className="bg-white p-0 rounded shadow-lg z-10 absolute w-screen md:w-[80%] flex justify-end">
-                    <div className="absolute p-2 md:p-2 hover:visible">
-                      <button className='bg-transparent text-white text-xl md:text-3xl rounded-md md:rounded-lg hover:bg-opacity-80' 
-                        onClick={handleWatchTrailer}>
-                          <span>x</span>
-                      </button>
-                    </div>
-                    <VideoBackground movieId={movieId} />
+              <div className="fixed inset-0 z-50 flex items-center justify-center w-screen">
+                <div className="absolute inset-0 bg-black opacity-50"></div>
+                <div className="bg-white p-0 rounded shadow-lg z-10 absolute w-screen md:w-[80%] flex justify-end">
+                  <div className="absolute p-2 md:p-2 hover:visible">
+                    <button
+                      className="bg-transparent text-white text-xl md:text-3xl rounded-md md:rounded-lg hover:bg-opacity-80"
+                      onClick={handleWatchTrailer}
+                    >
+                      <span>x</span>
+                    </button>
                   </div>
+                  <VideoBackground movieId={movieId} />
                 </div>
-              )}
+              </div>
+            )}
             <div className="text-white font-semibold px-6 md:px-10 py-2 md:py-4">
               <p className="text-xl md:text-3xl">Overview:</p>
               <p className="text-base md:text-xl">{overview}</p>
