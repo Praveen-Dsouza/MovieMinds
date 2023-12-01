@@ -5,7 +5,7 @@ import { createBrowserRouter } from "react-router-dom";
 import { RouterProvider } from "react-router-dom";
 import Shimmer from "./Shimmer";
 
-const MovieDetails = lazy(() => import("./MovieDetails"));
+const MovieDetails = lazy(() => import("./MovieDetails/MovieDetails"));
 const Error = lazy(() => import("./Error"));
 
 const Body = () => {

@@ -1,81 +1,44 @@
-import React, { useState } from "react";
-import { useSelector } from "react-redux";
-import { TMDB_IMAGE_URL } from "../Utils/Constants/Constants";
-import { BG_URL } from "../Utils/Constants/Constants";
-import { useNavigate } from "react-router";
-import back from "../Utils/Icons/back.jpg";
-import useMovieInfo from "../Hooks/useMovieInfo";
-import useMovieCredits from "../Hooks/useMovieCredits";
-import { useLocation } from "react-router-dom";
+import React, { useState } from 'react'
+import useMovieInfo from '../../Hooks/useMovieInfo'
 import moment from "moment";
-import useMovieTrailer from "../Hooks/useMovieTrailer";
-import VideoBackground from "./BrowseMovies/VideoBackground";
-import play from "../Utils/Icons/play.png";
+import { TMDB_IMAGE_URL } from '../../Utils/Constants/Constants';
+import VideoBackground from "../BrowseMovies/VideoBackground";
+import play from "../../Utils/Icons/play.png";
+import useMovieTrailer from '../../Hooks/useMovieTrailer';
+import { useSelector } from 'react-redux';
 
-const MovieInfo = () => {
-  const location = useLocation();
-  const movieId = location.pathname.match(/\/info\/(\d+)/)[1];
-  const navigate = useNavigate();
-  const handleBackClick = () => navigate(-1);
-  useMovieInfo(movieId);
-  useMovieCredits(movieId);
-  const movieInfo = useSelector((store) => store.details.movieInfo);
-  const movieCredits = useSelector((store) => store.details.movieCredits);
-  console.log("movieCredits", movieCredits);
-  const [isPopupVisible, setPopupVisible] = useState(false);
+const MovieInfo = ({ movieId }) => {
+    useMovieInfo(movieId)
+    useMovieTrailer(movieId);
+    const [isPopupVisible, setPopupVisible] = useState(false);
+    const movieInfo = useSelector((store) => store.details.movieInfo);
 
-  useMovieTrailer(movieId);
+    const handleWatchTrailer = () => setPopupVisible(!isPopupVisible);
 
-  if (!movieInfo) {
-    return null;
-  }
-
-  const handleWatchTrailer = () => setPopupVisible(!isPopupVisible);
-
-  const convertToHoursMinutes = (minutes) => {
-    const duration = moment.duration(minutes, "minutes");
-    const hours = duration.hours();
-    const minutesRemainder = duration.minutes();
-
-    const hoursText = hours > 0 ? `${hours}hr` : "";
-    const minutesText = minutesRemainder > 0 ? ` ${minutesRemainder}min` : "";
-
-    return hoursText + minutesText;
-  };
-
-  const {
-    title,
-    release_date,
-    genres,
-    runtime,
-    overview,
-    poster_path,
-    vote_average,
-  } = movieInfo;
+    const convertToHoursMinutes = (minutes) => {
+      const duration = moment.duration(minutes, "minutes");
+      const hours = duration.hours();
+      const minutesRemainder = duration.minutes();
+  
+      const hoursText = hours > 0 ? `${hours}hr` : "";
+      const minutesText = minutesRemainder > 0 ? ` ${minutesRemainder}min` : "";
+  
+      return hoursText + minutesText;
+    };
+  
+    const {
+      title,
+      release_date,
+      genres,
+      runtime,
+      overview,
+      poster_path,
+      vote_average,
+    } = movieInfo;
 
   return (
-    <div className="bg-gradient-to-tr from-black">
-      <div className="w-full -z-10 fixed">
-        <img
-          className="h-screen object-cover bg-gradient from-black w-full"
-          src={BG_URL}
-          alt="gpt_search"
-        />
-      </div>
-      <div className="px-6 md:px-10 pt-2 md:pt-4">
-        <button
-          className="font-bold text-white text-xl md:text-2xl"
-          onClick={handleBackClick}
-        >
-          <img
-            className="h-6 md:h-9 w-6 md:w-9"
-            src={back}
-            alt="back_icon"
-            title="backToBrowse"
-          />
-        </button>
-      </div>
-      {movieInfo && (
+    <div>
+        {movieInfo && (
         <div className="md:flex w-full">
           {poster_path && (
             <div className="px-6 md:pl-10 md:w-1/3">
@@ -149,7 +112,7 @@ const MovieInfo = () => {
         </div>
       )}
     </div>
-  );
-};
+  )
+}
 
 export default MovieInfo;
