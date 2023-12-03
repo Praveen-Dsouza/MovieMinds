@@ -3,21 +3,19 @@ import { useSelector } from "react-redux";
 import { BG_URL } from "../../Utils/Constants/Constants";
 import { useNavigate } from "react-router";
 import back from "../../Utils/Icons/back.jpg";
-import useMovieCredits from "../../Hooks/useMovieCredits";
 import { useLocation } from "react-router-dom";
 import MovieInfo from "./MovieInfo";
+import MovieCredits from "./MovieCredits";
 
 const MovieDetails = () => {
   const location = useLocation();
   const movieId = location.pathname.match(/\/info\/(\d+)/)[1];
   const navigate = useNavigate();
-  const handleBackClick = () => navigate(-1);
-  useMovieCredits(movieId);
+  const handleBackClick = () => navigate('/browse');
   const movieInfo = useSelector((store) => store.details.movieInfo);
   const movieCredits = useSelector((store) => store.details.movieCredits);
-  console.log("movieCredits", movieCredits);
 
-  if (!movieInfo) {
+  if (!movieInfo && !movieCredits) {
     return null;
   }
   
@@ -44,6 +42,7 @@ const MovieDetails = () => {
         </button>
       </div>
       <MovieInfo movieId={movieId} />
+      <MovieCredits movieId={movieId} />
     </div>
   );
 };
