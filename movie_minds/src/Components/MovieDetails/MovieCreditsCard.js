@@ -3,6 +3,9 @@ import { TMDB_IMAGE_URL } from "../../Utils/Constants/Constants";
 
 const MovieCreditsCard = ({ credits }) => {
   const { profile_path, name, character } = credits;
+
+  if (!profile_path) return;
+
   return (
     <div className="flex my-5 md:my-7 mr-5 md:mr-6">
       <div className="w-32 md:w-36">
