@@ -8,8 +8,6 @@ import MovieCreditsCard from "./MovieCreditsCard";
 const MovieCredits = ({ movieId }) => {
   useMovieCredits(movieId);
   const movieCredits = useSelector((store) => store.details.movieCredits);
-  console.log("movieCredits", movieCredits);
-
   const containerRef = useRef(null);
   const { current } = containerRef;
 
@@ -25,23 +23,31 @@ const MovieCredits = ({ movieId }) => {
   };
 
   return (
-    <div className="px-10 flex overflow-x-auto w-full">
-      <button
-        onClick={() => scrollCards("prev")}
-        className="absolute left-0 p-4 h-1/2 bg-gradient-to-r from-black"
-      >
-        <img className="h-9 w-9 hover:bg-gray-400 hover:rounded-full hover:border-solid hover:border-2 hover:border-white ease-in-out hover:scale-125" src={prevArrow} alt="" />
+    <div className="px-6 md:px-10 flex overflow-x-hidden w-full">
+      <button className="absolute left-0 p-2 md:p-4 h-1/3 md:h-1/2 bg-gradient-to-r from-black">
+        <div className="hover:bg-gray-400 hover:p-1 md:hover:p-2 hover:rounded-full">
+          <img
+            onClick={() => scrollCards("prev")}
+            className="h-9 w-9 cursor-pointer hover:rounded-full hover:border-solid hover:border-2 hover:border-white ease-in-out hover:scale-125"
+            src={prevArrow}
+            alt=""
+          />
+        </div>
       </button>
       <div ref={containerRef} className="flex overflow-x-auto">
         {movieCredits.cast?.map((item) => (
-          <MovieCreditsCard key={item.id} credits={item} />
+          <MovieCreditsCard key={item.order} credits={item} />
         ))}
       </div>
-      <button
-        onClick={() => scrollCards("next")}
-        className="absolute right-0 p-4 h-1/2 bg-gradient-to-l from-black"
-      >
-        <img className="h-9 w-9 hover:rounded-full hover:border-solid hover:border-2 hover:border-white ease-in-out hover:scale-125" src={nextArrow} alt="" />
+      <button className="absolute right-0 p-2 md:p-4 h-1/3 md:h-1/2 bg-gradient-to-l from-black">
+        <div className="hover:bg-gray-400 p-1 md:hover:p-2 hover:rounded-full">
+          <img
+            onClick={() => scrollCards("next")}
+            className="h-9 w-9 cursor-pointer hover:bg-gray-400 hover:rounded-full hover:border-solid hover:border-2 hover:border-white ease-in-out hover:scale-125"
+            src={nextArrow}
+            alt=""
+          />
+        </div>
       </button>
     </div>
   );
