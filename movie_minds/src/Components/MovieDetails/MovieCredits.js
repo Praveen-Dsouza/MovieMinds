@@ -34,7 +34,7 @@ const MovieCredits = ({ movieId }) => {
           />
         </div>
       </button>
-      <div ref={containerRef} className="flex overflow-x-auto">
+      <div ref={containerRef} className="flex overflow-x-hidden">
         {movieCredits.cast?.map((item) => (
           <MovieCreditsCard key={item.order} credits={item} />
         ))}
