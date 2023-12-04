@@ -8,7 +8,7 @@ const MovieList = ({ title, movies }) => {
             <div className='flex overflow-x-auto md:hover:overflow-x-auto md:overflow-x-hidden'>
                 <div className='flex'>
                     {movies?.map((movie) => {
-                        return <MovieCard key={movie.id} posterPath={movie.backdrop_path} title={movie.title} movieData={movie} />
+                        return <MovieCard key={movie.id} posterPath={movie.backdrop_path} title={movie.title} rating={movie.vote_average} movieData={movie} />
                     })
                     }
                 </div>

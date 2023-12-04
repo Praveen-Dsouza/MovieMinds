@@ -24,7 +24,7 @@ const MovieCredits = ({ movieId }) => {
 
   return (
     <div className="px-6 md:px-10 flex overflow-x-hidden w-full">
-      <button className="absolute left-0 p-2 md:p-4 h-1/3 md:h-1/2 bg-gradient-to-r from-black">
+      <button className="absolute left-0 p-2 md:p-4 h-1/3 md:h-1/2 bg-gradient-to-r from-black cursor-default">
         <div className="hover:bg-gray-400 hover:p-1 md:hover:p-2 hover:rounded-full">
           <img
             onClick={() => scrollCards("prev")}
@@ -39,7 +39,7 @@ const MovieCredits = ({ movieId }) => {
           <MovieCreditsCard key={item.order} credits={item} />
         ))}
       </div>
-      <button className="absolute right-0 p-2 md:p-4 h-1/3 md:h-1/2 bg-gradient-to-l from-black">
+      <button className="absolute right-0 p-2 md:p-4 h-1/3 md:h-1/2 bg-gradient-to-l from-black cursor-default">
         <div className="hover:bg-gray-400 p-1 md:hover:p-2 hover:rounded-full">
           <img
             onClick={() => scrollCards("next")}
