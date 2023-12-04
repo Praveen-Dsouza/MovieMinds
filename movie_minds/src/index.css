@@ -32,6 +32,12 @@
     -webkit-border-radius: 6px;
 }
 
+@media screen and (max-width: 768px) {
+    ::-webkit-scrollbar:horizontal {
+        background-color: black
+    }
+}
+
 ::-webkit-scrollbar-thumb:horizontal {
     background: #0000008f;
     border-radius: 100px;
