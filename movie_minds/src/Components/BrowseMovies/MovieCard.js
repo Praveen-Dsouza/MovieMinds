@@ -14,7 +14,7 @@ const MovieCard = ({ posterPath, title, movieData, rating }) => {
     <div>
       <div className="relative z-10 flex flex-row-reverse w-full">
         <p
-          className={`absolute my-3 md:m-2 text-[10px] text-0 leading-3 md:text-xs rounded-xl md:rounded-md px-1 text-white inline-flex ${
+          className={`absolute my-3 mr-1 md:m-2 text-[10px] text-0 leading-3 md:text-xs rounded-xl md:rounded-md px-1 text-white inline-flex ${
             rating >= 6 ? "bg-green-500" : "bg-red-500"
           }`}
         >
