@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 const MovieCard = ({ posterPath, title, movieData, rating }) => {
   const navigate = useNavigate();
-  if (!posterPath && !title) return null;
+  if ((!posterPath && !title) || !posterPath) return null;
 
   const handleMovieClick = (movieId) => {
     navigate(`/info/${movieId}`);
