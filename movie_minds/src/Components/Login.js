@@ -66,7 +66,7 @@ const Login = () => {
           const user = resp.user;
         })
         .catch((err) => {
-          setErrMsg(`Sorry, we can't find an account with this email!`);
+          setErrMsg(`Invalid Email or Password!`);
         });
     }
   };
