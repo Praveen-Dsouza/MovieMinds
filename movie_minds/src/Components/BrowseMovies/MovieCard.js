@@ -22,7 +22,7 @@ const MovieCard = ({ posterPath, title, movieData, rating }) => {
         </p>
       </div>
       <div
-        className="w-44 rounded-lg md:rounded-xl md:w-56 pr-4 md:pr-5 py-5 md:pb-6"
+        className="w-48 rounded-lg md:rounded-xl md:w-56 pr-4 md:pr-5 py-5 md:pb-6"
         onClick={() => handleMovieClick(movieData.id)}
       >
         <div className="relative cursor-pointer rounded-lg md:rounded-xl hover:border-solid hover:border-2 hover:border-white ease-in-out hover:scale-90">
